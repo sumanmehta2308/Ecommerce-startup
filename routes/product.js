@@ -1,12 +1,7 @@
-import express from  "express";
-const router=express.Router();
-router.get("/",(req,res)=>{
-res.send("Fetching all products");
-})
-router.post("/",(req,res)=>{
-  res.send("Adding a new product")
-})
-router.get("/:id",(req,res)=>{
-  res.send(`Fetching product with ID: ${req.params.id}`);
-})
+import express from "express";
+import {getAllProducts,addProduct,getProductById,} from "../controllers/productC.js";
+const router = express.Router();
+router.get("/", getAllProducts);
+router.post("/", addProduct);
+router.get("/:id", getProductById);
 export default router;
